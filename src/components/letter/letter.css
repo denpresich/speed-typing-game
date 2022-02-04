@@ -4,17 +4,56 @@
   text-align: center;
   background-color: #b3b3b3;
   color: #fff;
-  height: 3em;
-  width: 3em;
+  height: 3.25em;
+  width: 3.25em;
   padding: 1em;
   text-transform: capitalize;
   border-radius: 0.25em;
+  font-weight: 600;
 }
 
 .letter--success {
   background-color: #90ee90;
+  animation: success-pop 0.3s;
 }
 
 .letter--fail {
   background-color: #ffcccb;
+  animation: fail-pop 0.3s;
+}
+
+@keyframes success-pop {
+  0% {
+    scale: 1;
+  }
+
+  50% {
+    scale: 1.25;
+  }
+
+  100% {
+    scale: 1;
+  }
+}
+
+@keyframes fail-pop {
+  0% {
+    margin-top: 0;
+  }
+
+  25% {
+    margin-top: -1em;
+  }
+
+  50% {
+    margin-top: 0;
+  }
+
+  75% {
+    margin-top: 1em;
+  }
+
+  100% {
+    margin-top: 0;
+  }
 }
