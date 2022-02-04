@@ -1,0 +1,20 @@
+.letter,
+.letter--success,
+.letter--fail {
+  text-align: center;
+  background-color: #b3b3b3;
+  color: #fff;
+  height: 3em;
+  width: 3em;
+  padding: 1em;
+  text-transform: capitalize;
+  border-radius: 0.25em;
+}
+
+.letter--success {
+  background-color: #90ee90;
+}
+
+.letter--fail {
+  background-color: #ffcccb;
+}
