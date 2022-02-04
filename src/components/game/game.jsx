@@ -10,11 +10,6 @@ import reducer, { INITIAL_STATE, ACTION_TYPES } from "./reducer";
 export default function Game() {
   const [state, dispatch] = React.useReducer(reducer, INITIAL_STATE);
 
-  React.useEffect(() => {
-    const words = randomWords(100);
-    dispatch({ type: ACTION_TYPES.setWords, payload: { words } });
-  }, []);
-
   const handleKeyDown = (event) => {
     const correct = event.key === state.word[state.letterSuccessCount];
 
@@ -35,21 +30,35 @@ export default function Game() {
     return () => document.removeEventListener("keydown", handleKeyDown);
   }, [handleKeyDown]);
 
+  const handleStart = () => {
+    const words = randomWords(100);
+
+    dispatch({ type: ACTION_TYPES.start, payload: { words } });
+  };
+
   return (
     <div className="game">
-      <div className="game__stat">
-        <div>Fails: {state.failCount}</div>
-        <div>Words: {state.wordIndex}</div>
-      </div>
-      <div className="game__word-container">
-        <div className="game__word">
-          <Word
-            word={state.word || ""}
-            successCount={state.letterSuccessCount}
-            lastFail={state.letterLastFail}
-          />
-        </div>
-      </div>
+      {state.started ? (
+        <>
+          <div className="game__stat">
+            <div>Fails: {state.failCount}</div>
+            <div>Words: {state.wordIndex}</div>
+          </div>
+          <div className="game__word-container">
+            <div className="game__word">
+              <Word
+                word={state.word || ""}
+                successCount={state.letterSuccessCount}
+                lastFail={state.letterLastFail}
+              />
+            </div>
+          </div>
+        </>
+      ) : (
+        <button className="game__start-btn" onClick={handleStart}>
+          Start
+        </button>
+      )}
     </div>
   );
 }

@@ -24,3 +24,7 @@
   display: flex;
   justify-content: space-between;
 }
+
+.game__start-btn {
+  padding: 2em 1em;
+}

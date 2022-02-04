@@ -1,4 +1,5 @@
 export const INITIAL_STATE = {
+  started: false,
   words: [],
   word: null,
   wordIndex: 0,
@@ -8,11 +9,22 @@ export const INITIAL_STATE = {
 };
 
 export const ACTION_TYPES = {
+  start: "START",
+  stop: "STOP",
   setWords: "SET_WORDS",
   setNextWord: "SET_NEXT_WORD",
   incrementLetterSuccess: "INCREMENT_LETTER_SUCCESS",
   setLetterFail: "SET_LETTER_FAIL",
 };
+
+const startReducer = ({ payload }) => ({
+  ...INITIAL_STATE,
+  started: true,
+  words: payload.words,
+  word: payload.words[0],
+  wordIndex: 0,
+});
+const stopReducer = (state) => ({ ...state, started: false });
 
 const setWordsReducer = (state, { payload }) => ({
   ...state,
@@ -43,6 +55,10 @@ const setLetterFailReducer = (state) => ({
 
 export default function reducer(state, action) {
   switch (action.type) {
+    case ACTION_TYPES.start:
+      return startReducer(action);
+    case ACTION_TYPES.stop:
+      return stopReducer(state);
     case ACTION_TYPES.setWords:
       return setWordsReducer(state, action);
     case ACTION_TYPES.setNextWord:
