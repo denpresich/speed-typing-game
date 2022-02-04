@@ -4,6 +4,7 @@ export const INITIAL_STATE = {
   wordIndex: 0,
   letterSuccessCount: 0,
   letterLastFail: false,
+  failCount: 0,
 };
 
 export const ACTION_TYPES = {
@@ -37,6 +38,7 @@ const incrementLetterSuccessReducer = (state) => ({
 const setLetterFailReducer = (state) => ({
   ...state,
   letterLastFail: true,
+  failCount: state.failCount + 1,
 });
 
 export default function reducer(state, action) {

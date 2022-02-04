@@ -37,11 +37,19 @@ export default function Game() {
 
   return (
     <div className="game">
-      <Word
-        word={state.word || ""}
-        successCount={state.letterSuccessCount}
-        lastFail={state.letterLastFail}
-      />
+      <div className="game__stat">
+        <div>Fails: {state.failCount}</div>
+        <div>Words: {state.wordIndex}</div>
+      </div>
+      <div className="game__word-container">
+        <div className="game__word">
+          <Word
+            word={state.word || ""}
+            successCount={state.letterSuccessCount}
+            lastFail={state.letterLastFail}
+          />
+        </div>
+      </div>
     </div>
   );
 }
