@@ -11,6 +11,29 @@
   max-width: 90%;
 }
 
+.game__menu {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5em;
+  width: 100%;
+  padding: 2em;
+  border: 3px solid var(--color-green);
+  border-radius: 1.5em;
+}
+
+.game__title {
+  text-transform: uppercase;
+  font-size: 2em;
+  font-weight: bold;
+}
+
+.game__input {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5em;
+}
+
 .game__word-container {
   position: relative;
 }
@@ -26,6 +49,12 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+
+.game__helper {
+  position: absolute;
+  top: -8em;
+  width: 100%;
 }
 
 .stat {

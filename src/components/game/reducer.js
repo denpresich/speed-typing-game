@@ -1,6 +1,5 @@
 export const INITIAL_STATE = {
   started: false,
-  stopped: false,
   words: [],
   word: null,
   wordIndex: 0,
@@ -19,7 +18,7 @@ const startReducer = ({ payload }) => ({
   words: payload.words,
   word: payload.words[0],
 });
-const stopReducer = (state) => ({ ...state, stopped: true });
+const stopReducer = (state) => ({ ...state, started: false });
 
 const wordSuccessReducer = (state, { payload }) => ({
   ...state,

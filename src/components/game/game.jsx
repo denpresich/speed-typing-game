@@ -35,23 +35,8 @@ export default function Game() {
 
   return (
     <div className="game">
-      {state.started && state.stopped ? (
-        <div className="game__stat">
-          <div className="stat">
-            <Typography className="stat__label">Characters</Typography>
-            <Typography className="stat__value">
-              {state.charactersCount}
-            </Typography>
-          </div>
-
-          <div className="stat">
-            <Typography className="stat__label">Words</Typography>
-            <Typography classname="stat__value">{state.wordIndex}</Typography>
-          </div>
-        </div>
-      ) : null}
-      {state.started && !state.stopped ? (
-        <>
+      {state.started ? (
+        <div className="game__input">
           <div className="game__helper">
             <div className="stat">
               <Typography className="stat__label">Word</Typography>
@@ -64,11 +49,27 @@ export default function Game() {
               <WordInput word={state.word} onSuccess={handleSuccess} />
             </div>
           </div>
-        </>
+        </div>
       ) : (
-        <Button onClick={handleStart}>
-          {state.stopped ? "Play again" : "Play"}
-        </Button>
+        <div className="game__menu">
+          <Typography className="game__title">Speed Typing Game</Typography>
+          <div className="game__stat">
+            <div className="stat">
+              <Typography className="stat__label">Characters</Typography>
+              <Typography className="stat__value">
+                {state.charactersCount}
+              </Typography>
+            </div>
+
+            <div className="stat">
+              <Typography className="stat__label">Words</Typography>
+              <Typography classname="stat__value">{state.wordIndex}</Typography>
+            </div>
+          </div>
+          <Button onClick={handleStart}>
+            {state.stopped ? "Play again" : "Play"}
+          </Button>
+        </div>
       )}
     </div>
   );
