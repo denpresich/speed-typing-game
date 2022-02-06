@@ -5,6 +5,7 @@ import randomWords from "random-words";
 
 import Counter from "../counter";
 import WordInput from "../word-input";
+import Button from "../button";
 
 import reducer, { INITIAL_STATE, ACTION_TYPES } from "./reducer";
 
@@ -50,9 +51,9 @@ export default function Game() {
           </div>
         </>
       ) : (
-        <button className="game__start-btn" onClick={handleStart}>
+        <Button onClick={handleStart}>
           {state.stopped ? "Play again" : "Play"}
-        </button>
+        </Button>
       )}
     </div>
   );

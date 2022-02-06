@@ -1,0 +1,10 @@
+.btn {
+  width: 100%;
+  padding: 1.75em 1em;
+  color: var(--color-white);
+  background-color: var(--color-green);
+  border-radius: 1em;
+  border: none;
+  text-transform: uppercase;
+  font-weight: bold;
+}
