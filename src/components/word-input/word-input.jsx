@@ -7,6 +7,7 @@ export default function WordInput({ word, onSuccess }) {
   const [successCount, setSuccessCount] = React.useState(0);
   const [lastFail, setLastFail] = React.useState(false);
 
+  // eslint-disable-next-line consistent-return
   const handleKeyDown = (event) => {
     const correct = event.key === word[successCount];
 
@@ -15,11 +16,12 @@ export default function WordInput({ word, onSuccess }) {
     const lastChar = word.length - 1 === successCount;
 
     setSuccessCount((count) => count + 1);
+    setLastFail(false);
 
     if (lastChar) {
       setTimeout(() => {
         onSuccess(word);
-        setSuccessCount(0), setLastFail(false);
+        setSuccessCount(0);
       }, 300);
     }
   };

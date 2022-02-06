@@ -13,7 +13,7 @@ export default function Letter({ letter, variant }) {
         "letter--fail": variant === "fail",
       })}
     >
-      {letter}
+      <div className="letter__value">{letter}</div>
     </div>
   );
 }
