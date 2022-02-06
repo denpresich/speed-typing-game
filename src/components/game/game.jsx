@@ -59,16 +59,26 @@ export default function Game() {
           <Typography className="game__title">Speed Typing Game</Typography>
           <div className="game__stat">
             <div className="stat">
-              <Typography className="stat__label">Score</Typography>
-              <Typography className="stat__value">{state.score}</Typography>
+              <Typography className="stat__label">Highscore ✨</Typography>
+              <Typography className="stat__value">{state.highscore}</Typography>
             </div>
-            <div className="stat">
-              <Typography className="stat__label">Words</Typography>
-              <Typography classname="stat__value">{state.wordIndex}</Typography>
-            </div>
+            {state.score ? (
+              <>
+                <div className="stat">
+                  <Typography className="stat__label">Score</Typography>
+                  <Typography className="stat__value">{state.score}</Typography>
+                </div>
+                <div className="stat">
+                  <Typography className="stat__label">Words</Typography>
+                  <Typography classname="stat__value">
+                    {state.wordIndex}
+                  </Typography>
+                </div>
+              </>
+            ) : null}
           </div>
           <Button onClick={handleStart}>
-            {state.stopped ? "Play again" : "Play"}
+            {state.score ? "Play again" : "Play"}
           </Button>
         </div>
       )}
