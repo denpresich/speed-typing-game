@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-filename-extension */
 import "./styles/global.css";
 
 import React from "react";
