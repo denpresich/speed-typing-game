@@ -17,6 +17,7 @@ export const ACTION_TYPES = {
 
 const startReducer = ({ payload }) => ({
   ...INITIAL_STATE,
+  highscore: Number(localStorage.getItem(HIGHSCORE_LOCAL_KEY)),
   started: true,
   words: payload.words,
   word: payload.words[0],
