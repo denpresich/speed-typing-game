@@ -20,8 +20,10 @@
   transform: translateX(-50%);
 }
 
-.game__stat {
+.game__stat,
+.game__helper {
   display: flex;
+  align-items: center;
   justify-content: space-between;
 }
 

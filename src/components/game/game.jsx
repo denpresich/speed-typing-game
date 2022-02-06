@@ -54,7 +54,10 @@ export default function Game() {
       ) : null}
       {state.started && !state.stopped ? (
         <>
-          <Counter duration={60000} />
+          <div className="game__helper">
+            <div>Word: {state.word}</div>
+            <Counter duration={60000} />
+          </div>
           <div className="game__word-container">
             <div className="game__word">
               <Word
@@ -67,7 +70,7 @@ export default function Game() {
         </>
       ) : (
         <button className="game__start-btn" onClick={handleStart}>
-          Start
+          {state.stopped ? "Play again" : "Play"}
         </button>
       )}
     </div>
