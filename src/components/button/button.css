@@ -7,4 +7,13 @@
   border: none;
   text-transform: uppercase;
   font-weight: bold;
+  cursor: pointer;
+}
+
+.btn:hover {
+  filter: brightness(95%);
+}
+
+.btn:active {
+  filter: brightness(105%);
 }
