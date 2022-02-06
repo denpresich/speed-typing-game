@@ -17,5 +17,19 @@ body,
 
 body {
   font-family: "Source Sans Pro", sans-serif;
-  font-size: 16px;
+  font-size: 12px;
+}
+
+/* Tablet */
+@media screen and (min-width: 481px) {
+  body {
+    font-size: 14px;
+  }
+}
+
+/* Desktop */
+@media screen and (min-width: 796px) {
+  body {
+    font-size: 16px;
+  }
 }
