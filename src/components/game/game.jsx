@@ -10,7 +10,7 @@ import Typography from "../typography";
 
 import reducer, { INITIAL_STATE, ACTION_TYPES } from "./reducer";
 
-const GAME_DURATION = 60000; // 60s
+const GAME_DURATION = 10000; // 60s
 
 export default function Game() {
   const [state, dispatch] = React.useReducer(reducer, INITIAL_STATE);
@@ -39,6 +39,10 @@ export default function Game() {
         <div className="game__input">
           <div className="game__helper">
             <div className="stat">
+              <Typography className="stat__label">Score</Typography>
+              <Typography className="stat__value">{state.score}</Typography>
+            </div>
+            <div className="stat">
               <Typography className="stat__label">Word</Typography>
               <Typography className="stat__value">{state.word}</Typography>
             </div>
@@ -55,12 +59,9 @@ export default function Game() {
           <Typography className="game__title">Speed Typing Game</Typography>
           <div className="game__stat">
             <div className="stat">
-              <Typography className="stat__label">Characters</Typography>
-              <Typography className="stat__value">
-                {state.charactersCount}
-              </Typography>
+              <Typography className="stat__label">Score</Typography>
+              <Typography className="stat__value">{state.score}</Typography>
             </div>
-
             <div className="stat">
               <Typography className="stat__label">Words</Typography>
               <Typography classname="stat__value">{state.wordIndex}</Typography>

@@ -3,7 +3,7 @@ export const INITIAL_STATE = {
   words: [],
   word: null,
   wordIndex: 0,
-  charactersCount: 0,
+  score: 0,
 };
 
 export const ACTION_TYPES = {
@@ -24,7 +24,7 @@ const wordSuccessReducer = (state, { payload }) => ({
   ...state,
   word: state.words[state.wordIndex + 1],
   wordIndex: state.wordIndex + 1,
-  charactersCount: state.charactersCount + payload.word.length,
+  score: state.score + payload.word.length,
 });
 
 export default function reducer(state, action) {
