@@ -10,7 +10,7 @@ import Typography from "../typography";
 
 import reducer, { INITIAL_STATE, ACTION_TYPES } from "./reducer";
 
-const GAME_DURATION = 10000; // 60s
+const GAME_DURATION = 60000; // 60s
 
 export default function Game() {
   const [state, dispatch] = React.useReducer(reducer, INITIAL_STATE);
