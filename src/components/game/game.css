@@ -7,7 +7,7 @@
   display: flex;
   flex-direction: column;
   gap: 2em;
-  width: 24em;
+  width: 37.5em;
 }
 
 .game__word-container {
@@ -25,4 +25,20 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.stat__label {
+  text-transform: uppercase;
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+.stat__value {
+  font-size: 1.125em;
 }

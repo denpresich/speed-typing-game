@@ -1,5 +1,9 @@
+import "./counter.css";
+
 import React from "react";
 import PropTypes from "prop-types";
+
+import Typography from "../typography";
 
 export default function Counter({ duration }) {
   const [number, setNumber] = React.useState(duration / 1000);
@@ -7,13 +11,13 @@ export default function Counter({ duration }) {
   React.useEffect(() => {
     const intervalId = setInterval(
       () =>
-        setNumber((number) => {
-          if (number === 0) {
+        setNumber((value) => {
+          if (value === 0) {
             clearInterval(intervalId);
-            return number;
+            return value;
           }
 
-          return number - 1;
+          return value - 1;
         }),
       1000
     );
@@ -21,7 +25,12 @@ export default function Counter({ duration }) {
     return () => clearInterval(intervalId);
   }, []);
 
-  return <div>Time left: {number}s</div>;
+  return (
+    <div className="counter">
+      <Typography className="counter__label">Time left</Typography>
+      <Typography className="counter__value">{number}s</Typography>
+    </div>
+  );
 }
 
 Counter.propTypes = {

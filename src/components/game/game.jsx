@@ -6,8 +6,11 @@ import randomWords from "random-words";
 import Counter from "../counter";
 import WordInput from "../word-input";
 import Button from "../button";
+import Typography from "../typography";
 
 import reducer, { INITIAL_STATE, ACTION_TYPES } from "./reducer";
+
+const GAME_DURATION = 60000; // 60s
 
 export default function Game() {
   const [state, dispatch] = React.useReducer(reducer, INITIAL_STATE);
@@ -22,7 +25,7 @@ export default function Game() {
 
     dispatch({ type: ACTION_TYPES.start, payload: { words } });
 
-    setTimeout(handleStop, 60000);
+    setTimeout(handleStop, GAME_DURATION);
   }, [dispatch, handleStop]);
 
   const handleSuccess = React.useCallback(
@@ -34,15 +37,27 @@ export default function Game() {
     <div className="game">
       {state.started && state.stopped ? (
         <div className="game__stat">
-          <div>Characters: {state.charactersCount}</div>
-          <div>Words: {state.wordIndex}</div>
+          <div className="stat">
+            <Typography className="stat__label">Characters</Typography>
+            <Typography className="stat__value">
+              {state.charactersCount}
+            </Typography>
+          </div>
+
+          <div className="stat">
+            <Typography className="stat__label">Words</Typography>
+            <Typography classname="stat__value">{state.wordIndex}</Typography>
+          </div>
         </div>
       ) : null}
       {state.started && !state.stopped ? (
         <>
           <div className="game__helper">
-            <div>Word: {state.word}</div>
-            <Counter duration={60000} />
+            <div className="stat">
+              <Typography className="stat__label">Word</Typography>
+              <Typography className="stat__value">{state.word}</Typography>
+            </div>
+            <Counter duration={GAME_DURATION} />
           </div>
           <div className="game__word-container">
             <div className="game__word">

@@ -1,0 +1,17 @@
+.counter {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+}
+
+.counter__label {
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 1.5em;
+  text-align: right;
+}
+
+.counter__value {
+  text-align: right;
+  font-size: 1.125em;
+}
